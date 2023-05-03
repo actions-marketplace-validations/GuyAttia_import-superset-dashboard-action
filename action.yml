@@ -1,0 +1,19 @@
+name: 'Import Superset Dashboard'
+author: "Guy Attia"
+description: 'Import dashboard ZIP file to Superset'
+inputs:
+  url_base:
+    description: 'Base URL for your Superset API endpoint'
+    required: true
+    default: 'http://localhost:8088'
+  DASHBOARD_FILE_PATH: 
+    description: Path of the dashboard you want to import
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url_base }}
+    - ${{ inputs.dashboard_file_path }}
+branding:
+  color: blue
